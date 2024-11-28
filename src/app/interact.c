@@ -44,7 +44,7 @@ void interact()
     case GAME_CHOOSE_SCREEN:
         int index = atoi(user_input);
 
-        if (index == '0')
+        if (index == 0)
         {
             current_interact_state = WELCOME_SCREEN;
 
