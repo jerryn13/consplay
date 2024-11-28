@@ -1,0 +1,13 @@
+{
+    "model": "<config_llm_model>",
+    "messages": [
+        {
+            "role": "system",
+            "content": "<current_game.system_prompt>"
+        },
+        {
+            "role": "assistant",
+            "content": "<current_game.assistant_prompt>"
+        }
+    ]
+}
