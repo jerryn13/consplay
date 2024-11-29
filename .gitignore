@@ -1,2 +1,3 @@
 *.exe
 /src/userdata/env.ini
+/released
