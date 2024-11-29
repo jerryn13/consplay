@@ -12,6 +12,7 @@ enum InteractState
 {
     EXIT,
     WELCOME_SCREEN,
+    ABOUT_SCREEN,
     GAME_CHOOSE_SCREEN,
     GAME_PLAY_SCREEN
 };
@@ -27,6 +28,12 @@ void interact()
     switch (current_interact_state)
     {
     case WELCOME_SCREEN:
+        if (streq(user_input, "0"))
+        {
+            system("cls");
+            current_interact_state = ABOUT_SCREEN;
+            AboutScreen();
+        }
         if (streq(user_input, "1"))
         {
             system("cls");
@@ -50,7 +57,7 @@ void interact()
 
             system("cls");
             WelcomeScreen();
-            
+
             return;
         }
 
@@ -87,6 +94,15 @@ void interact()
         printf("————————————————————\n");
         printf("%s: ", current_game.name);
         LLMSubmit(ANSIToUTF8(user_input), current_game.system_prompt, current_game.assistant_prompt);
+        break;
+    case ABOUT_SCREEN:
+        current_interact_state = WELCOME_SCREEN;
+
+        system("cls");
+        WelcomeScreen();
+
+        return;
+        
         break;
     case EXIT:
         break;

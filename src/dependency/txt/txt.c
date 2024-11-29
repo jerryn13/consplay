@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define TXT_READ_SIZE_DEFAULT 1024
+#define TXT_READ_SIZE_DEFAULT 4096
 
 void txtRead(const char *path, char *recv_string, size_t buffer_size) {
     FILE *fp = fopen(path, "r");
@@ -10,7 +10,7 @@ void txtRead(const char *path, char *recv_string, size_t buffer_size) {
     }
 
     size_t total_read = 0;
-    char temp_buffer[1024];
+    char temp_buffer[TXT_READ_SIZE_DEFAULT];
 
     while (fgets(temp_buffer, sizeof(temp_buffer), fp)) {
         size_t len = strlen(temp_buffer);

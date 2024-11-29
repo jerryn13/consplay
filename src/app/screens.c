@@ -22,3 +22,8 @@ void GamechooseScreen()
     renderScreenFromTxt(ASSET_PATH_SCREEN_GAMECHOOSE);
     GamechooseList();
 }
+
+void AboutScreen()
+{
+    renderScreenFromTxt(ASSET_PATH_SCREEN_ABOUT);
+}
